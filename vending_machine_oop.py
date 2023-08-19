@@ -120,6 +120,13 @@ class VendingMachine:
  
 class HospitalVendingMachine(VendingMachine):
     snack_prices = {"candy": 1.50, "soda": .75, "chips": .50, "cookies": 2.50}
+
+    def __init__(self, inventory, serial, days_until_maintenance):
+        super().__init__(inventory, serial, days_until_maintenance)
+
+    def print_days_until_maintenance(self):
+        print(f"Number of days remaining until the next maintenance {self.days_until_maintenance}")
+
     # Complete the class
     def sales_menu(self):
         print("Welcome to our Hospital Vending Machine We hope you are feeling better today!")
@@ -142,10 +149,11 @@ class SchoolVendingMachine(VendingMachine):
 # Instances
  
 floor_machine = VendingMachine({"candy": 36, "soda": 15, "chips": 40, "cookies": 120}, "011423424", 24)
-floor_machine.sales_menu()
+# floor_machine.sales_menu()
  
 hospital_machine = HospitalVendingMachine({"candy": 32, "soda": 50, "chips": 45, "cookies": 80}, "03223424", 15)
-# hospital_machine.sales_menu()
- 
+hospital_machine.print_days_until_maintenance()
+hospital_machine.sales_menu()
+
 school_machine = SchoolVendingMachine({"candy": 36, "soda": 15, "chips": 40, "cookies": 120}, "0534424", 2)
 # school_machine.sales_menu()
